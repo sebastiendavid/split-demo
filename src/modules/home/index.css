@@ -1,0 +1,12 @@
+.Home {
+  display: flex;
+  flex: 1;
+  align-items: flex-start;
+  justify-content: center;
+  padding-top: 2rem;
+}
+
+.Home__img {
+  max-width: 100%;
+  max-height: 100%;
+}

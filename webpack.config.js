@@ -6,29 +6,31 @@ const webpack = require('webpack');
 
 const nodeEnv = process.env.NODE_ENV || 'development';
 const prod = nodeEnv === 'production';
+process.env.NODE_ENV = nodeEnv;
 
 module.exports = {
   devtool: prod ? 'hidden-source-map' : 'cheap-eval-source-map',
   context: path.join(__dirname, 'src'),
   entry: {
-    app: ['./index.js'],
+    app: ['index.js'],
     vendor: ['react', 'react-dom', 'react-router'],
   },
   output: {
     path: path.join(__dirname, 'build'),
     filename: '[name].js',
-    chunkFilename: '[id].js',
+    chunkFilename: '[name].[id].js',
     publicPath: '',
   },
   module: {
     loaders: [
       {
         test: /\.css$/,
+        exclude: /(build)/,
         loader: prod ? ExtractTextPlugin.extract('style', 'css') : 'style!css',
       },
       {
-        test: /\.(js)$/,
-        exclude: /node_modules/,
+        test: /\.js$/,
+        exclude: /(node_modules|build)/,
         loader: 'babel',
         query: pkg.babel,
       },

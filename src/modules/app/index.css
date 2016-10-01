@@ -1,0 +1,19 @@
+.App {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+}
+
+.navigation {
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+}
+
+.navigation__link {
+  padding-right: 1rem;
+}
+
+.View {
+  flex: 1;
+}

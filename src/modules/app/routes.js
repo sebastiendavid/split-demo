@@ -10,7 +10,17 @@ export default {
     {
       path: '/',
       getComponent(location, cb) {
-        require.ensure([], require => loadRoute(cb)(require('modules/home')), 'home');
+        require.ensure([], (require) => {
+          loadRoute(cb)(require('modules/home'));
+        }, 'home');
+      },
+    },
+    {
+      path: '/octocat',
+      getComponent(location, cb) {
+        require.ensure([], (require) => {
+          loadRoute(cb)(require('modules/octocat'));
+        }, 'octocat');
       },
     },
   ],
