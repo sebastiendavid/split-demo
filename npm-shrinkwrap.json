@@ -1527,9 +1527,9 @@
       "dev": true
     },
     "eslint": {
-      "version": "3.7.1",
-      "from": "eslint@>=3.7.0 <3.8.0",
-      "resolved": "https://registry.npmjs.org/eslint/-/eslint-3.7.1.tgz",
+      "version": "3.8.0",
+      "from": "eslint@3.8.0",
+      "resolved": "https://registry.npmjs.org/eslint/-/eslint-3.8.0.tgz",
       "dev": true,
       "dependencies": {
         "globals": {
@@ -1572,7 +1572,7 @@
     },
     "eslint-plugin-import": {
       "version": "1.16.0",
-      "from": "eslint-plugin-import@>=1.16.0 <1.17.0",
+      "from": "eslint-plugin-import@>=1.0.0 <2.0.0",
       "resolved": "https://registry.npmjs.org/eslint-plugin-import/-/eslint-plugin-import-1.16.0.tgz",
       "dev": true,
       "dependencies": {
@@ -1591,9 +1591,9 @@
       "dev": true
     },
     "eslint-plugin-react": {
-      "version": "6.3.0",
-      "from": "eslint-plugin-react@>=6.3.0 <6.4.0",
-      "resolved": "https://registry.npmjs.org/eslint-plugin-react/-/eslint-plugin-react-6.3.0.tgz",
+      "version": "6.4.1",
+      "from": "eslint-plugin-react@>=6.0.0 <7.0.0",
+      "resolved": "https://registry.npmjs.org/eslint-plugin-react/-/eslint-plugin-react-6.4.1.tgz",
       "dev": true
     },
     "espree": {
@@ -3738,9 +3738,9 @@
       "dev": true
     },
     "normalize.css": {
-      "version": "4.2.0",
-      "from": "normalize.css@>=4.2.0 <4.3.0",
-      "resolved": "https://registry.npmjs.org/normalize.css/-/normalize.css-4.2.0.tgz",
+      "version": "5.0.0",
+      "from": "normalize.css@latest",
+      "resolved": "https://registry.npmjs.org/normalize.css/-/normalize.css-5.0.0.tgz",
       "dev": true
     },
     "npm-run-path": {
