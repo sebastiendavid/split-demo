@@ -1,4 +1,4 @@
-import App from 'modules/app';
+import App from './';
 
 function loadRoute(cb) {
   return module => cb(null, module.default);
@@ -11,7 +11,7 @@ export default {
       path: '/',
       getComponent(location, cb) {
         require.ensure([], (require) => {
-          loadRoute(cb)(require('modules/home'));
+          loadRoute(cb)(require('../home'));
         }, 'home');
       },
     },
@@ -19,7 +19,7 @@ export default {
       path: '/octocat',
       getComponent(location, cb) {
         require.ensure([], (require) => {
-          loadRoute(cb)(require('modules/octocat'));
+          loadRoute(cb)(require('../octocat'));
         }, 'octocat');
       },
     },

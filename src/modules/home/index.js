@@ -1,6 +1,6 @@
 import React from 'react';
-import helloGif from 'modules/home/hello_there.gif';
-import 'modules/home/index.css';
+import './index.css';
+import helloGif from './hello_there.gif';
 
 export default function Home() {
   return (
@@ -8,7 +8,7 @@ export default function Home() {
       <img
         className="Home__img"
         src={helloGif}
-        role="presentation"
+        alt="Hello"
       />
     </section>
   );

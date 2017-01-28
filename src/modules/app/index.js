@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react';
 import { Link } from 'react-router';
-import 'modules/app/index.css';
+import './index.css';
 
 function App({ children }) {
   return (
@@ -16,6 +16,10 @@ function App({ children }) {
 
 App.propTypes = {
   children: PropTypes.node,
+};
+
+App.defaultProps = {
+  children: <noscript />,
 };
 
 export default App;

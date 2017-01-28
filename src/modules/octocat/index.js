@@ -1,6 +1,6 @@
 import React from 'react';
-import octocatGif from 'modules/octocat/octocat.gif';
-import 'modules/octocat/index.css';
+import './index.css';
+import octocatGif from './octocat.gif';
 
 export default function Octocat() {
   return (
@@ -8,7 +8,7 @@ export default function Octocat() {
       <img
         className="Octocat__img"
         src={octocatGif}
-        role="presentation"
+        alt="Octocat"
       />
     </section>
   );

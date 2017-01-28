@@ -9,42 +9,48 @@ const prod = nodeEnv === 'production';
 process.env.NODE_ENV = nodeEnv;
 
 module.exports = {
-  devtool: prod ? 'hidden-source-map' : 'cheap-eval-source-map',
-  context: path.join(__dirname, 'src'),
+  devtool: prod ? 'hidden-source-map' : 'eval',
   entry: {
-    app: ['index.js'],
+    app: ['./src/index.js'],
     vendor: ['react', 'react-dom', 'react-router'],
   },
   output: {
-    path: path.join(__dirname, 'build'),
+    path: path.resolve('build'),
     filename: '[name].js',
     chunkFilename: '[name].[id].js',
     publicPath: '',
   },
   module: {
-    loaders: [
+    rules: [
       {
         test: /\.css$/,
-        exclude: /(build)/,
-        loader: prod ? ExtractTextPlugin.extract('style', 'css') : 'style!css',
+        exclude: [
+          path.resolve('build'),
+        ],
+        loader: prod ? ExtractTextPlugin.extract({
+          fallbackLoader: 'style-loader',
+          loader: 'css-loader',
+        }) : 'style-loader!css-loader',
       },
       {
         test: /\.js$/,
-        exclude: /(node_modules|build)/,
-        loader: 'babel',
-        query: pkg.babel,
+        exclude: [
+          path.resolve('build'),
+          path.resolve('node_modules'),
+        ],
+        loader: 'babel-loader',
+        options: pkg.babel,
       },
       {
         test: /\.(gif|png|jpg|jpeg\ttf|eot|svg|woff(2)?)(\?[a-z0-9]+)?$/,
-        loader: 'file',
+        loader: 'file-loader',
       },
     ],
   },
   resolve: {
-    root: [
-      path.join(__dirname, 'src'),
+    modules: [
+      'node_modules',
     ],
-    modulesDirectories: ['node_modules'],
   },
   plugins: [
     new webpack.optimize.CommonsChunkPlugin({
@@ -53,21 +59,9 @@ module.exports = {
       minChunks: Infinity,
     }),
     prod ? new ExtractTextPlugin('styles.css') : null,
-    prod ? new webpack.optimize.UglifyJsPlugin({
-      compress: {
-        warnings: false,
-      },
-      output: {
-        comments: false,
-      },
-      sourceMap: false,
-    }) : null,
-    new webpack.DefinePlugin({
-      'process.env.NODE_ENV': `"${nodeEnv}"`,
-    }),
     new HtmlWebpackPlugin({
       inject: true,
-      template: 'index.html',
+      template: 'src/index.html',
       filename: 'index.html',
       title: `${pkg.name}`,
       hash: prod,
