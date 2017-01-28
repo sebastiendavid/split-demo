@@ -1,25 +1,18 @@
-import React, { PropTypes } from 'react';
-import { Link } from 'react-router';
+import React from 'react';
+import { Provider } from 'react-redux';
+import { Router, browserHistory } from 'react-router';
 import './index.css';
+import configureStore from './store';
+import createRoutes from './routes';
 
-function App({ children }) {
+const store = configureStore();
+
+function App() {
   return (
-    <main className="App">
-      <nav className="navigation">
-        <Link className="navigation__link" to="/">Home</Link>
-        <Link className="navigation__link" to="/octocat">Octocat</Link>
-      </nav>
-      {children}
-    </main>
+    <Provider store={store}>
+      <Router history={browserHistory} routes={createRoutes(store)} />
+    </Provider>
   );
 }
-
-App.propTypes = {
-  children: PropTypes.node,
-};
-
-App.defaultProps = {
-  children: <noscript />,
-};
 
 export default App;

@@ -1,27 +1,32 @@
-import App from './';
+import { injectAsyncReducer } from './store';
+import Main from './main';
 
-function loadRoute(cb) {
-  return module => cb(null, module.default);
+export default function createRoutes(store) {
+  function loadRoute(cb) {
+    return ({ component, reducer, reducerKey }) => {
+      injectAsyncReducer(store, reducerKey, reducer);
+      return cb(null, component);
+    };
+  }
+  return {
+    component: Main,
+    childRoutes: [
+      {
+        path: '/',
+        getComponent(location, cb) {
+          require.ensure([], (require) => {
+            loadRoute(cb)(require('../home'));
+          }, 'home');
+        },
+      },
+      {
+        path: '/octocat',
+        getComponent(location, cb) {
+          require.ensure([], (require) => {
+            loadRoute(cb)(require('../octocat'));
+          }, 'octocat');
+        },
+      },
+    ],
+  };
 }
-
-export default {
-  component: App,
-  childRoutes: [
-    {
-      path: '/',
-      getComponent(location, cb) {
-        require.ensure([], (require) => {
-          loadRoute(cb)(require('../home'));
-        }, 'home');
-      },
-    },
-    {
-      path: '/octocat',
-      getComponent(location, cb) {
-        require.ensure([], (require) => {
-          loadRoute(cb)(require('../octocat'));
-        }, 'octocat');
-      },
-    },
-  ],
-};

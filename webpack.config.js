@@ -9,10 +9,10 @@ const prod = nodeEnv === 'production';
 process.env.NODE_ENV = nodeEnv;
 
 module.exports = {
-  devtool: prod ? 'hidden-source-map' : 'eval',
+  devtool: prod ? 'hidden-source-map' : 'eval-source-map',
   entry: {
     app: ['./src/index.js'],
-    vendor: ['react', 'react-dom', 'react-router'],
+    vendor: ['react', 'react-dom', 'react-router', 'redux', 'react-redux'],
   },
   output: {
     path: path.resolve('build'),
