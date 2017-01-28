@@ -1,18 +1,28 @@
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const path = require('path');
-const pkg = require('./package.json');
 const webpack = require('webpack');
+const pkg = require('./package.json');
 
 const nodeEnv = process.env.NODE_ENV || 'development';
 const prod = nodeEnv === 'production';
+const extractCSS = new ExtractTextPlugin('styles.css');
 process.env.NODE_ENV = nodeEnv;
 
 module.exports = {
   devtool: prod ? 'hidden-source-map' : 'eval-source-map',
   entry: {
-    app: ['./src/index.js'],
-    vendor: ['react', 'react-dom', 'react-router', 'redux', 'react-redux'],
+    app: [
+      './src/index.js',
+    ],
+    vendor: [
+      'react',
+      'react-dom',
+      'react-router',
+      'redux',
+      'react-redux',
+    ],
   },
   output: {
     path: path.resolve('build'),
@@ -24,10 +34,7 @@ module.exports = {
     rules: [
       {
         test: /\.css$/,
-        exclude: [
-          path.resolve('build'),
-        ],
-        loader: prod ? ExtractTextPlugin.extract({
+        loader: prod ? extractCSS.extract({
           fallbackLoader: 'style-loader',
           loader: 'css-loader',
         }) : 'style-loader!css-loader',
@@ -35,7 +42,6 @@ module.exports = {
       {
         test: /\.js$/,
         exclude: [
-          path.resolve('build'),
           path.resolve('node_modules'),
         ],
         loader: 'babel-loader',
@@ -47,18 +53,13 @@ module.exports = {
       },
     ],
   },
-  resolve: {
-    modules: [
-      'node_modules',
-    ],
-  },
   plugins: [
     new webpack.optimize.CommonsChunkPlugin({
       names: ['vendor'],
       filename: '[name].js',
       minChunks: Infinity,
     }),
-    prod ? new ExtractTextPlugin('styles.css') : null,
+    prod ? extractCSS : null,
     new HtmlWebpackPlugin({
       inject: true,
       template: 'src/index.html',
@@ -86,5 +87,6 @@ module.exports = {
         removeEmptyElements: false,
       } : false,
     }),
+    process.env.ANALYZE ? new BundleAnalyzerPlugin() : null,
   ].filter(p => !!p),
 };

@@ -4,6 +4,7 @@
   "description": "",
   "main": "src/index.js",
   "scripts": {
+    "analyze": "better-npm-run analyze",
     "build": "npm run clean && better-npm-run build",
     "clean": "trash build",
     "lint": "eslint src *.js",
@@ -12,6 +13,12 @@
     "test": "npm run lint"
   },
   "betterScripts": {
+    "analyze": {
+      "command": "better-npm-run build",
+      "env": {
+        "ANALYZE": "1"
+      }
+    },
     "build": {
       "command": "webpack -p --progress",
       "env": {
@@ -68,6 +75,7 @@
     "style-loader": "~0.13.1",
     "trash-cli": "~1.4.0",
     "webpack": "~2.2.0",
+    "webpack-bundle-analyzer": "~2.2.1",
     "webpack-dev-server": "~2.2.0"
   },
   "babel": {
