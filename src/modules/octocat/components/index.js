@@ -36,6 +36,7 @@ class Octocat extends PureComponent {
   render() {
     return (
       <section className="View Octocat">
+        <h1>Octocat</h1>
         <img
           className="Octocat__img"
           src={octocatGif}
