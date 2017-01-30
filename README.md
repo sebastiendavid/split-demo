@@ -1,6 +1,6 @@
 # split-demo
 
-Tested with `node@4.6.0` & `node@6.7.0` & `npm@3.10.8`
+Tested with `node@6.9` & `npm@3.10`.
 
 ## Install
 
