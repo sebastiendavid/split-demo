@@ -1,5 +1,5 @@
 import { injectAsyncReducer } from './store';
-import Main from './main';
+import Main from '../modules/main';
 
 export default function createRoutes(store) {
   function loadRoute(cb) {
@@ -15,7 +15,7 @@ export default function createRoutes(store) {
         path: '/',
         getComponent(location, cb) {
           require.ensure([], (require) => {
-            loadRoute(cb)(require('../home'));
+            loadRoute(cb)(require('../modules/home'));
           }, 'home');
         },
       },
@@ -23,7 +23,7 @@ export default function createRoutes(store) {
         path: '/octocat',
         getComponent(location, cb) {
           require.ensure([], (require) => {
-            loadRoute(cb)(require('../octocat'));
+            loadRoute(cb)(require('../modules/octocat'));
           }, 'octocat');
         },
       },
