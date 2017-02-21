@@ -3,6 +3,9 @@ import { connect } from 'react-redux';
 import './index.css';
 import octocatGif from './octocat.gif';
 import { sendMessageToOctocat } from '../actions';
+import { debug } from '../../../utils/log';
+
+debug('load octocat component');
 
 const mapDispatchToProps = {
   sendMessageToOctocat,
@@ -34,6 +37,7 @@ class Octocat extends PureComponent {
   }
 
   render() {
+    debug('render octocat component');
     return (
       <section className="View Octocat">
         <h1>Octocat</h1>

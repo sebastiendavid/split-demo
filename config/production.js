@@ -13,8 +13,8 @@ module.exports = function prodConfig() {
         {
           test: /\.css$/,
           loader: ExtractTextPlugin.extract({
-            fallbackLoader: 'style-loader',
-            loader: 'css-loader',
+            fallback: 'style-loader',
+            use: ['css-loader'],
           }),
         },
       ],
@@ -40,7 +40,7 @@ module.exports = function prodConfig() {
         inject: true,
         template: 'src/index.html',
         filename: 'index.html',
-        title: `${pkg.name}`,
+        title: pkg.name,
         hash: true,
         minify: {
           removeComments: true,

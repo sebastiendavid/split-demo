@@ -11,7 +11,7 @@ module.exports = function devConfig() {
       rules: [
         {
           test: /\.css$/,
-          loader: 'style-loader!css-loader',
+          use: ['style-loader', 'css-loader'],
         },
       ],
     },
@@ -29,7 +29,7 @@ module.exports = function devConfig() {
         inject: true,
         template: 'src/index.html',
         filename: 'index.html',
-        title: `${pkg.name}`,
+        title: pkg.name,
         hash: false,
         minify: false,
       }),

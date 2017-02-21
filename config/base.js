@@ -19,7 +19,7 @@ module.exports = function baseConfig() {
     output: {
       path: path.resolve('build'),
       filename: '[name].js',
-      chunkFilename: '[name].[id].js',
+      chunkFilename: '[name].js',
       publicPath: '',
     },
     module: {
@@ -40,9 +40,11 @@ module.exports = function baseConfig() {
     },
     plugins: [
       new webpack.optimize.CommonsChunkPlugin({
-        names: ['vendor'],
-        filename: '[name].js',
-        minChunks: Infinity,
+        name: 'vendor',
+      }),
+      new webpack.optimize.CommonsChunkPlugin({
+        name: 'app',
+        async: 'common',
       }),
     ],
     stats: {
