@@ -1,0 +1,2 @@
+webpackJsonp([0],{360:function(a,b){"use strict";b.a=function(a){d()>=c.debug&&console.debug(a)};var c={error:1,warn:2,info:3,debug:4},d=(()=>{var a;return()=>{if(0<=a)return a;if(0<document.location.search.length){var b=document.location.search.split("?")[1].split("&"),d=b.find((a)=>0===a.toLowerCase().indexOf("loglevel"))||"",e=d.split("=")[1]||"";a=c[e.toLowerCase()]||0}else a=0;return a}})()}});
+//# sourceMappingURL=common.8cc2b7348c6021191076.js.map
