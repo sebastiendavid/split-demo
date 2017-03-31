@@ -13,6 +13,10 @@ module.exports = function devConfig() {
           test: /\.css$/,
           use: ['style-loader', 'css-loader'],
         },
+        {
+          test: /\.(gif|png|jpe?g|svg)(\?[a-z0-9]+)?$/i,
+          loader: 'file-loader',
+        },
       ],
     },
     plugins: [
@@ -20,10 +24,9 @@ module.exports = function devConfig() {
         minimize: false,
         debug: true,
       }),
-      new webpack.DefinePlugin({
-        'process.env': {
-          NODE_ENV: JSON.stringify('development'),
-        },
+      new webpack.EnvironmentPlugin({
+        NODE_ENV: 'development',
+        DEBUG: true,
       }),
       new HtmlWebpackPlugin({
         inject: true,

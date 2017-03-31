@@ -33,7 +33,7 @@ module.exports = function baseConfig() {
           options: pkg.babel,
         },
         {
-          test: /\.(gif|png|jpg|jpeg\ttf|eot|svg|woff(2)?)(\?[a-z0-9]+)?$/,
+          test: /\.(ttf|eot|woff(2)?)(\?[a-z0-9]+)?$/i,
           loader: 'file-loader',
         },
       ],
