@@ -788,6 +788,12 @@
       "resolved": "https://registry.npmjs.org/babel-plugin-transform-remove-debugger/-/babel-plugin-transform-remove-debugger-6.8.1.tgz",
       "dev": true
     },
+    "babel-plugin-transform-runtime": {
+      "version": "6.23.0",
+      "from": "babel-plugin-transform-runtime@latest",
+      "resolved": "https://registry.npmjs.org/babel-plugin-transform-runtime/-/babel-plugin-transform-runtime-6.23.0.tgz",
+      "dev": true
+    },
     "babel-plugin-transform-strict-mode": {
       "version": "6.22.0",
       "from": "babel-plugin-transform-strict-mode@>=6.22.0 <7.0.0",
@@ -5949,6 +5955,12 @@
       "version": "3.6.0",
       "from": "redux@>=3.6.0 <3.7.0",
       "resolved": "https://registry.npmjs.org/redux/-/redux-3.6.0.tgz",
+      "dev": true
+    },
+    "redux-thunk": {
+      "version": "2.2.0",
+      "from": "redux-thunk@latest",
+      "resolved": "https://registry.npmjs.org/redux-thunk/-/redux-thunk-2.2.0.tgz",
       "dev": true
     },
     "regenerate": {

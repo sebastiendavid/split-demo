@@ -27,6 +27,14 @@ export default function createRoutes(store) {
           }, 'octocat');
         },
       },
+      {
+        path: '/info',
+        getComponent(location, cb) {
+          require.ensure([], (require) => {
+            loadRoute(cb)(require('../modules/info'));
+          }, 'info');
+        },
+      },
     ],
   };
 }

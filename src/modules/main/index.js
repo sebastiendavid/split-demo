@@ -8,6 +8,7 @@ function Main({ children }) {
       <nav className="navigation">
         <Link className="navigation__link" to="/">Home</Link>
         <Link className="navigation__link" to="/octocat">Octocat</Link>
+        <Link className="navigation__link" to="/info">Info</Link>
       </nav>
       {children}
     </main>

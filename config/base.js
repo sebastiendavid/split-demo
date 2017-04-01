@@ -1,5 +1,6 @@
 const path = require('path');
 const webpack = require('webpack');
+const server = require('./server');
 const pkg = require('../package.json');
 
 module.exports = function baseConfig() {
@@ -72,6 +73,7 @@ module.exports = function baseConfig() {
       clientLogLevel: 'warning',
       historyApiFallback: true,
       stats: 'errors-only',
+      setup: server,
     },
   };
 };

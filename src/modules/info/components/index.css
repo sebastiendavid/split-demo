@@ -1,0 +1,8 @@
+.Info {
+  flex: 1;
+  overflow: scroll;
+}
+
+.Info__pre {
+  padding: 1rem;
+}
