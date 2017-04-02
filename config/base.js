@@ -9,13 +9,6 @@ module.exports = function baseConfig() {
       app: [
         './src/index.js',
       ],
-      vendor: [
-        'react',
-        'react-dom',
-        'react-router',
-        'redux',
-        'react-redux',
-      ],
     },
     output: {
       path: path.resolve('build'),
@@ -42,10 +35,12 @@ module.exports = function baseConfig() {
     plugins: [
       new webpack.optimize.CommonsChunkPlugin({
         name: 'vendor',
+        minChunks: ({ context }) => context && context.indexOf('node_modules') !== -1,
       }),
       new webpack.optimize.CommonsChunkPlugin({
         name: 'app',
         async: 'common',
+        minChunks: 2,
       }),
     ],
     stats: {
