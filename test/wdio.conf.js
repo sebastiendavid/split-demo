@@ -1,6 +1,10 @@
 const moment = require('moment');
+const chai = require('chai');
+const dirtyChai = require('dirty-chai');
 
 const toMilliseconds = (...args) => moment.duration(...args).asMilliseconds();
+
+chai.use(dirtyChai);
 
 exports.config = {
   baseUrl: 'http://localhost:8080',

@@ -12,14 +12,14 @@ describe('Octocat', () => {
   });
 
   it('should have an input to write a message', () => {
-    expect(octocatPage.input.isVisible()).to.equal(true);
+    expect(octocatPage.input.isVisible()).to.be.true();
   });
 
   it('should display a message when clicking on submit button', () => {
     const message = 'Hello!';
     octocatPage.input.setValue(message);
     octocatPage.submit.click();
-    expect(octocatPage.message.isVisible()).to.equal(true);
+    expect(octocatPage.message.isVisible()).to.be.true();
     expect(octocatPage.message.getText()).to.equal(message);
   });
 
@@ -27,7 +27,7 @@ describe('Octocat', () => {
     const message = 'I am the Octocat!';
     octocatPage.input.setValue(message);
     octocatPage.input.keys(octocatPage.key('Enter'));
-    expect(octocatPage.message.isVisible()).to.equal(true);
+    expect(octocatPage.message.isVisible()).to.be.true();
     expect(octocatPage.message.getText()).to.equal(message);
   });
 });
