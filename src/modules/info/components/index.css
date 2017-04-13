@@ -3,6 +3,10 @@
   overflow: scroll;
 }
 
+.Info__date {
+  padding: 0 1rem;
+}
+
 .Info__pre {
   padding: 1rem;
 }

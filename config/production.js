@@ -1,3 +1,4 @@
+const BabiliPlugin = require('babili-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const webpack = require('webpack');
@@ -63,14 +64,16 @@ module.exports = function prodConfig() {
         NODE_ENV: 'production',
         DEBUG: false,
       }),
-      new webpack.optimize.UglifyJsPlugin({
-        compress: {
-          warnings: false,
-        },
-        sourceMap: false,
-      }),
+      // new webpack.optimize.UglifyJsPlugin({
+      //   compress: {
+      //     warnings: false,
+      //   },
+      //   sourceMap: false,
+      //   exclude: ['src/**/*'],
+      // }),
+      new BabiliPlugin(),
       new ExtractTextPlugin({
-        filename: 'styles.[contenthash].css',
+        filename: '[name].[contenthash].css',
         allChunks: true,
       }),
       new HtmlWebpackPlugin({

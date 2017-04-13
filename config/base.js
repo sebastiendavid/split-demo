@@ -39,6 +39,11 @@ module.exports = function baseConfig() {
       }),
       new webpack.optimize.CommonsChunkPlugin({
         name: 'app',
+        async: 'vendor-async',
+        minChunks: ({ context }) => context && context.indexOf('node_modules') !== -1,
+      }),
+      new webpack.optimize.CommonsChunkPlugin({
+        name: 'app',
         async: 'common',
         minChunks: 2,
       }),

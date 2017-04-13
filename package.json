@@ -55,16 +55,18 @@
     "npm": ">=3.0.0"
   },
   "devDependencies": {
-    "babel-core": "~6.24.0",
-    "babel-eslint": "~7.2.1",
+    "babel-core": "~6.24.1",
+    "babel-eslint": "~7.2.2",
     "babel-loader": "~6.4.1",
     "babel-plugin-transform-remove-console": "~6.8.1",
     "babel-plugin-transform-remove-debugger": "~6.8.1",
     "babel-plugin-transform-runtime": "~6.23.0",
-    "babel-preset-es2015": "~6.24.0",
-    "babel-preset-react": "~6.23.0",
+    "babel-preset-babili": "~0.0.12",
+    "babel-preset-env": "~1.3.3",
+    "babel-preset-react": "~6.24.1",
     "babel-preset-react-optimize": "~1.0.1",
-    "babel-preset-stage-0": "~6.22.0",
+    "babel-preset-stage-0": "~6.24.1",
+    "babili-webpack-plugin": "~0.0.11",
     "better-npm-run": "~0.0.15",
     "chai": "~3.5.0",
     "css-loader": "~0.28.0",
@@ -80,27 +82,40 @@
     "image-webpack-loader": "~3.3.0",
     "moment": "~2.18.1",
     "normalize.css": "~6.0.0",
-    "react": "~15.4.2",
-    "react-dom": "~15.4.2",
-    "react-redux": "~5.0.3",
-    "react-router": "~3.0.3",
+    "prop-types": "~15.5.8",
+    "react": "~15.5.4",
+    "react-dom": "~15.5.4",
+    "react-redux": "~5.0.4",
+    "react-router": "~4.1.1",
+    "react-router-dom": "~4.1.1",
     "redux": "~3.6.0",
     "redux-thunk": "~2.2.0",
-    "selenium-standalone": "~6.1.0",
+    "selenium-standalone": "~6.2.0",
     "style-loader": "~0.16.1",
     "trash-cli": "~1.4.0",
     "wdio-mocha-framework": "~0.5.9",
     "wdio-selenium-standalone-service": "~0.0.8",
     "wdio-spec-reporter": "~0.1.0",
     "webdriverio": "~4.6.2",
-    "webpack": "~2.3.2",
-    "webpack-bundle-analyzer": "~2.3.1",
+    "webpack": "~2.3.3",
+    "webpack-bundle-analyzer": "~2.4.0",
     "webpack-dev-server": "~2.4.2",
     "webpack-merge": "~4.1.0"
   },
   "babel": {
     "presets": [
-      "es2015",
+      [
+        "env",
+        {
+          "targets": {
+            "chrome": 55,
+            "firefox": 50,
+            "safari": 10
+          },
+          "modules": false,
+          "loose": true
+        }
+      ],
       "stage-0",
       "react"
     ],
@@ -108,7 +123,7 @@
       [
         "transform-runtime",
         {
-          "helpers": false,
+          "helpers": true,
           "polyfill": false,
           "regenerator": true
         }

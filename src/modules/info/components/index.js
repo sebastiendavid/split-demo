@@ -1,5 +1,7 @@
-import React, { PureComponent, PropTypes } from 'react';
+import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+import moment from 'moment';
 import './index.css';
 import { fetchInfo } from '../actions';
 
@@ -28,6 +30,9 @@ class Info extends PureComponent {
   render() {
     return (
       <div className="Info">
+        <h3 className="Info__date">
+          {moment().format()}
+        </h3>
         <pre className="Info__pre">
           {this.props.info}
         </pre>

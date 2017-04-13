@@ -1,5 +1,6 @@
-import React, { PureComponent, PropTypes } from 'react';
+import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import './index.css';
 import octocatGif from './octocat.gif';
 import { sendMessageToOctocat } from '../actions';
