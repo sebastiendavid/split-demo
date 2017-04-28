@@ -56,8 +56,9 @@
   },
   "devDependencies": {
     "babel-core": "~6.24.1",
-    "babel-eslint": "~7.2.2",
-    "babel-loader": "~6.4.1",
+    "babel-eslint": "~7.2.3",
+    "babel-loader": "~7.0.0",
+    "babel-plugin-syntax-dynamic-import": "~6.18.0",
     "babel-plugin-transform-remove-console": "~6.8.1",
     "babel-plugin-transform-remove-debugger": "~6.8.1",
     "babel-plugin-transform-runtime": "~6.23.0",
@@ -65,7 +66,7 @@
     "babel-preset-env": "~1.4.0",
     "babel-preset-react": "~6.24.1",
     "babel-preset-react-optimize": "~1.0.1",
-    "babel-preset-stage-0": "~6.24.1",
+    "babel-preset-stage-2": "~6.24.1",
     "babili-webpack-plugin": "~0.0.11",
     "better-npm-run": "~0.0.15",
     "chai": "~3.5.0",
@@ -90,16 +91,16 @@
     "react-router-dom": "~4.1.1",
     "redux": "~3.6.0",
     "redux-thunk": "~2.2.0",
-    "selenium-standalone": "~6.2.0",
+    "selenium-standalone": "~6.4.1",
     "style-loader": "~0.16.1",
     "trash-cli": "~1.4.0",
-    "wdio-mocha-framework": "~0.5.9",
+    "wdio-mocha-framework": "~0.5.10",
     "wdio-selenium-standalone-service": "~0.0.8",
     "wdio-spec-reporter": "~0.1.0",
-    "webdriverio": "~4.6.2",
+    "webdriverio": "~4.7.1",
     "webpack": "~2.4.1",
     "webpack-bundle-analyzer": "~2.4.0",
-    "webpack-dev-server": "~2.4.2",
+    "webpack-dev-server": "~2.4.5",
     "webpack-merge": "~4.1.0"
   },
   "babel": {
@@ -112,11 +113,10 @@
             "firefox": 50,
             "safari": 10
           },
-          "modules": false,
-          "loose": true
+          "modules": false
         }
       ],
-      "stage-0",
+      "stage-2",
       "react"
     ],
     "plugins": [
@@ -127,7 +127,8 @@
           "polyfill": false,
           "regenerator": true
         }
-      ]
+      ],
+      "syntax-dynamic-import"
     ],
     "env": {
       "production": {
