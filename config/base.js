@@ -69,29 +69,14 @@ module.exports = function baseConfig() {
       }),
       new OfflinePlugin({
         publicPath: '/',
-        caches: {
-          main: [
-            '*.css',
-            '*.js',
-          ],
-          // additional: [
-          //   ':externals:',
-          // ],
-          // optional: [
-          //   ':rest:',
-          // ],
-        },
+        caches: 'all',
         externals: [
           '/',
         ],
         ServiceWorker: {
           navigateFallbackURL: '/',
         },
-        AppCache: {
-          FALLBACK: {
-            '/': '/offline-page.html',
-          },
-        },
+        AppCache: false,
       }),
     ],
     stats: {
