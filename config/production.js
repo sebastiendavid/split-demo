@@ -1,6 +1,7 @@
 const BabiliPlugin = require('babili-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const ManifestPlugin = require('webpack-manifest-plugin');
 const webpack = require('webpack');
 const webpackMerge = require('webpack-merge');
 const commonConfig = require('./base');
@@ -102,6 +103,9 @@ module.exports = function prodConfig() {
           removeOptionalTags: true,
           removeEmptyElements: false,
         },
+      }),
+      new ManifestPlugin({
+        fileName: 'chunks-manifest.json',
       }),
     ],
   });

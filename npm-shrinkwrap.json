@@ -1627,6 +1627,38 @@
       "resolved": "https://registry.npmjs.org/cookie-signature/-/cookie-signature-1.0.6.tgz",
       "dev": true
     },
+    "copy-webpack-plugin": {
+      "version": "4.0.1",
+      "from": "copy-webpack-plugin@latest",
+      "resolved": "https://registry.npmjs.org/copy-webpack-plugin/-/copy-webpack-plugin-4.0.1.tgz",
+      "dev": true,
+      "dependencies": {
+        "bluebird": {
+          "version": "2.11.0",
+          "from": "bluebird@>=2.10.2 <3.0.0",
+          "resolved": "https://registry.npmjs.org/bluebird/-/bluebird-2.11.0.tgz",
+          "dev": true
+        },
+        "fs-extra": {
+          "version": "0.26.7",
+          "from": "fs-extra@>=0.26.4 <0.27.0",
+          "resolved": "https://registry.npmjs.org/fs-extra/-/fs-extra-0.26.7.tgz",
+          "dev": true
+        },
+        "glob": {
+          "version": "6.0.4",
+          "from": "glob@>=6.0.4 <7.0.0",
+          "resolved": "https://registry.npmjs.org/glob/-/glob-6.0.4.tgz",
+          "dev": true
+        },
+        "loader-utils": {
+          "version": "0.2.17",
+          "from": "loader-utils@>=0.2.15 <0.3.0",
+          "resolved": "https://registry.npmjs.org/loader-utils/-/loader-utils-0.2.17.tgz",
+          "dev": true
+        }
+      }
+    },
     "core-js": {
       "version": "2.4.1",
       "from": "core-js@>=2.4.0 <3.0.0",
@@ -5199,6 +5231,12 @@
       "resolved": "https://registry.npmjs.org/no-case/-/no-case-2.3.1.tgz",
       "dev": true
     },
+    "node-dir": {
+      "version": "0.1.16",
+      "from": "node-dir@>=0.1.10 <0.2.0",
+      "resolved": "https://registry.npmjs.org/node-dir/-/node-dir-0.1.16.tgz",
+      "dev": true
+    },
     "node-fetch": {
       "version": "1.6.3",
       "from": "node-fetch@>=1.0.1 <2.0.0",
@@ -5320,6 +5358,20 @@
       "from": "obuf@>=1.1.0 <2.0.0",
       "resolved": "https://registry.npmjs.org/obuf/-/obuf-1.1.1.tgz",
       "dev": true
+    },
+    "offline-plugin": {
+      "version": "4.7.0",
+      "from": "offline-plugin@latest",
+      "resolved": "https://registry.npmjs.org/offline-plugin/-/offline-plugin-4.7.0.tgz",
+      "dev": true,
+      "dependencies": {
+        "loader-utils": {
+          "version": "0.2.17",
+          "from": "loader-utils@>=0.2.0 <0.3.0",
+          "resolved": "https://registry.npmjs.org/loader-utils/-/loader-utils-0.2.17.tgz",
+          "dev": true
+        }
+      }
     },
     "on-finished": {
       "version": "2.3.0",
@@ -7588,6 +7640,12 @@
           "dev": true
         }
       }
+    },
+    "webpack-manifest-plugin": {
+      "version": "1.1.0",
+      "from": "webpack-manifest-plugin@latest",
+      "resolved": "https://registry.npmjs.org/webpack-manifest-plugin/-/webpack-manifest-plugin-1.1.0.tgz",
+      "dev": true
     },
     "webpack-merge": {
       "version": "4.1.0",

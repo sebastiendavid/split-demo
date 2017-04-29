@@ -1,3 +1,6 @@
+const CopyWebpackPlugin = require('copy-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const OfflinePlugin = require('offline-plugin');
 const path = require('path');
 const webpack = require('webpack');
 const server = require('./server');
@@ -46,6 +49,49 @@ module.exports = function baseConfig() {
         name: 'app',
         async: 'common',
         minChunks: 2,
+      }),
+      new webpack.optimize.CommonsChunkPlugin({
+        name: 'manifest',
+        minChunks: Infinity,
+      }),
+      new CopyWebpackPlugin([
+        { context: 'src', from: 'manifest.json' },
+        { context: 'src/assets', from: 'favicon.ico' },
+        { context: 'src/assets', from: 'icon.png' },
+      ]),
+      new HtmlWebpackPlugin({
+        inject: false,
+        template: 'src/offline-page.html',
+        filename: 'offline-page.html',
+        title: pkg.name,
+        hash: false,
+        minify: false,
+      }),
+      new OfflinePlugin({
+        publicPath: '/',
+        caches: {
+          main: [
+            '*.css',
+            '*.js',
+          ],
+          // additional: [
+          //   ':externals:',
+          // ],
+          // optional: [
+          //   ':rest:',
+          // ],
+        },
+        externals: [
+          '/',
+        ],
+        ServiceWorker: {
+          navigateFallbackURL: '/',
+        },
+        AppCache: {
+          FALLBACK: {
+            '/': '/offline-page.html',
+          },
+        },
       }),
     ],
     stats: {
