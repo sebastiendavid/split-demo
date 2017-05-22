@@ -16,9 +16,21 @@ function App() {
       <Router>
         <Main>
           <Switch>
-            <Route exact path={home.path} component={createAsyncComponent(home.get)} />
-            <Route exact path={octocat.path} component={createAsyncComponent(octocat.get)} />
-            <Route exact path={info.path} component={createAsyncComponent(info.get)} />
+            <Route
+              exact
+              path={home.path}
+              component={createAsyncComponent(home.get)}
+            />
+            <Route
+              exact
+              path={octocat.path}
+              component={createAsyncComponent(octocat.get)}
+            />
+            <Route
+              exact
+              path={info.path}
+              component={createAsyncComponent(info.get)}
+            />
             <Redirect to={home.path} />
           </Switch>
         </Main>

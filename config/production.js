@@ -19,13 +19,15 @@ module.exports = function prodConfig() {
           test: /\.css$/,
           loader: ExtractTextPlugin.extract({
             fallback: 'style-loader',
-            use: [{
-              loader: 'css-loader',
-              options: {
-                minimize: true,
-                sourceMap: false,
+            use: [
+              {
+                loader: 'css-loader',
+                options: {
+                  minimize: true,
+                  sourceMap: false,
+                },
               },
-            }],
+            ],
           }),
         },
         {

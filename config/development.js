@@ -6,7 +6,6 @@ const pkg = require('../package.json');
 
 module.exports = function devConfig() {
   return webpackMerge(commonConfig(), {
-    devtool: 'source-map',
     module: {
       rules: [
         {

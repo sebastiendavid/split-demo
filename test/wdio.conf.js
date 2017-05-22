@@ -8,9 +8,7 @@ chai.use(dirtyChai);
 
 exports.config = {
   baseUrl: 'http://localhost:8080',
-  specs: [
-    'test/specs/*',
-  ],
+  specs: ['test/specs/*'],
   exclude: [],
   capabilities: [{ browserName: 'chrome' }],
   maxInstances: 1,

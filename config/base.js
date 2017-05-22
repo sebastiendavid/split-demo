@@ -8,10 +8,9 @@ const pkg = require('../package.json');
 
 module.exports = function baseConfig() {
   return {
+    devtool: 'source-map',
     entry: {
-      app: [
-        './src/index.js',
-      ],
+      app: ['./src/index.js'],
     },
     output: {
       path: path.resolve('build'),
@@ -23,9 +22,7 @@ module.exports = function baseConfig() {
       rules: [
         {
           test: /\.js$/,
-          exclude: [
-            path.resolve('node_modules'),
-          ],
+          exclude: [path.resolve('node_modules')],
           loader: 'babel-loader',
           options: pkg.babel,
         },
@@ -38,12 +35,14 @@ module.exports = function baseConfig() {
     plugins: [
       new webpack.optimize.CommonsChunkPlugin({
         name: 'vendor',
-        minChunks: ({ context }) => context && context.indexOf('node_modules') !== -1,
+        minChunks: ({ context }) =>
+          context && context.indexOf('node_modules') !== -1,
       }),
       new webpack.optimize.CommonsChunkPlugin({
         name: 'app',
         async: 'vendor-async',
-        minChunks: ({ context }) => context && context.indexOf('node_modules') !== -1,
+        minChunks: ({ context }) =>
+          context && context.indexOf('node_modules') !== -1,
       }),
       new webpack.optimize.CommonsChunkPlugin({
         name: 'app',
@@ -70,9 +69,7 @@ module.exports = function baseConfig() {
       new OfflinePlugin({
         publicPath: '/',
         caches: 'all',
-        externals: [
-          '/',
-        ],
+        externals: ['/'],
         ServiceWorker: {
           navigateFallbackURL: '/',
         },
