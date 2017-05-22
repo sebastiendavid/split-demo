@@ -11,12 +11,10 @@ const loglevel = (() => {
     if (level >= 0) {
       return level;
     } else if (document.location.search.length > 0) {
-      const query = (document.location.search
-        .split('?')[1]
-        .split('&')
-        .find(q => q.toLowerCase().indexOf('loglevel') === 0) || '')
-        .split('=')[1] || '';
-      level = levels[query.toLowerCase()] || 0;
+      const queries = document.location.search.split('?')[1].split('&');
+      const query = queries.find(q => q.toLowerCase().indexOf('loglevel') === 0) || '';
+      const value = query.split('=')[1] || '';
+      level = levels[value.toLowerCase()] || 0;
     } else {
       level = 0;
     }

@@ -9,11 +9,7 @@ export default function Home() {
   debug('render home component');
   return (
     <section className="View Home">
-      <img
-        className="Home__img"
-        src={helloGif}
-        alt="Hello"
-      />
+      <img className="Home__img" src={helloGif} alt="Hello" />
     </section>
   );
 }

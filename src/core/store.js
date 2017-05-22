@@ -9,14 +9,7 @@ function devTools() {
 }
 
 export default function configureStore(initialState = {}) {
-  const store = createStore(
-    createReducer(),
-    initialState,
-    compose(
-      applyMiddleware(thunk),
-      devTools(),
-    ),
-  );
+  const store = createStore(createReducer(), initialState, compose(applyMiddleware(thunk), devTools()));
   store.asyncReducers = {};
   return store;
 }

@@ -51,23 +51,13 @@ class Octocat extends PureComponent {
       <section className="View Octocat">
         <h1>Octocat</h1>
         <div className="Octocat__imgWrapper">
-          <img
-            id="octocat-image"
-            className="Octocat__img"
-            src={octocatGif}
-            alt="Octocat"
-          />
+          <img id="octocat-image" className="Octocat__img" src={octocatGif} alt="Octocat" />
           {!!this.props.octocatMessage &&
             <h2 id="octocat-message" className="Octocat__message">
               {this.props.octocatMessage}
-            </h2>
-          }
+            </h2>}
         </div>
-        <form
-          id="octocat-form"
-          className="Octocat__form"
-          onSubmit={this.onSubmitMessage}
-        >
+        <form id="octocat-form" className="Octocat__form" onSubmit={this.onSubmitMessage}>
           <input
             id="octocat-input"
             className="Octocat__input"
@@ -76,12 +66,7 @@ class Octocat extends PureComponent {
             onChange={this.onChangeMessage}
             placeholder="Message"
           />
-          <input
-            id="octocat-submit"
-            className="Octocat__submit"
-            type="submit"
-            value="Send"
-          />
+          <input id="octocat-submit" className="Octocat__submit" type="submit" value="Send" />
         </form>
       </section>
     );
