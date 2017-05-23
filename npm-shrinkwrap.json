@@ -1007,129 +1007,21 @@
       "dev": true
     },
     "babili-webpack-plugin": {
-      "version": "0.0.11",
-      "from": "babili-webpack-plugin@>=0.0.11 <0.1.0",
-      "resolved": "https://registry.npmjs.org/babili-webpack-plugin/-/babili-webpack-plugin-0.0.11.tgz",
+      "version": "0.1.1",
+      "from": "babili-webpack-plugin@0.1.1",
+      "resolved": "https://registry.npmjs.org/babili-webpack-plugin/-/babili-webpack-plugin-0.1.1.tgz",
       "dev": true,
       "dependencies": {
-        "babel-helper-evaluate-path": {
-          "version": "0.0.3",
-          "from": "babel-helper-evaluate-path@>=0.0.3 <0.0.4",
-          "resolved": "https://registry.npmjs.org/babel-helper-evaluate-path/-/babel-helper-evaluate-path-0.0.3.tgz",
+        "source-list-map": {
+          "version": "1.1.2",
+          "from": "source-list-map@>=1.1.1 <2.0.0",
+          "resolved": "https://registry.npmjs.org/source-list-map/-/source-list-map-1.1.2.tgz",
           "dev": true
         },
-        "babel-helper-flip-expressions": {
-          "version": "0.0.2",
-          "from": "babel-helper-flip-expressions@>=0.0.2 <0.0.3",
-          "resolved": "https://registry.npmjs.org/babel-helper-flip-expressions/-/babel-helper-flip-expressions-0.0.2.tgz",
-          "dev": true
-        },
-        "babel-helper-is-void-0": {
-          "version": "0.0.1",
-          "from": "babel-helper-is-void-0@>=0.0.1 <0.0.2",
-          "resolved": "https://registry.npmjs.org/babel-helper-is-void-0/-/babel-helper-is-void-0-0.0.1.tgz",
-          "dev": true
-        },
-        "babel-helper-mark-eval-scopes": {
-          "version": "0.0.3",
-          "from": "babel-helper-mark-eval-scopes@>=0.0.3 <0.0.4",
-          "resolved": "https://registry.npmjs.org/babel-helper-mark-eval-scopes/-/babel-helper-mark-eval-scopes-0.0.3.tgz",
-          "dev": true
-        },
-        "babel-helper-to-multiple-sequence-expressions": {
-          "version": "0.0.4",
-          "from": "babel-helper-to-multiple-sequence-expressions@>=0.0.4 <0.0.5",
-          "resolved": "https://registry.npmjs.org/babel-helper-to-multiple-sequence-expressions/-/babel-helper-to-multiple-sequence-expressions-0.0.4.tgz",
-          "dev": true
-        },
-        "babel-plugin-minify-builtins": {
-          "version": "0.0.2",
-          "from": "babel-plugin-minify-builtins@>=0.0.2 <0.0.3",
-          "resolved": "https://registry.npmjs.org/babel-plugin-minify-builtins/-/babel-plugin-minify-builtins-0.0.2.tgz",
-          "dev": true
-        },
-        "babel-plugin-minify-constant-folding": {
-          "version": "0.0.4",
-          "from": "babel-plugin-minify-constant-folding@>=0.0.4 <0.0.5",
-          "resolved": "https://registry.npmjs.org/babel-plugin-minify-constant-folding/-/babel-plugin-minify-constant-folding-0.0.4.tgz",
-          "dev": true
-        },
-        "babel-plugin-minify-flip-comparisons": {
-          "version": "0.0.2",
-          "from": "babel-plugin-minify-flip-comparisons@>=0.0.2 <0.0.3",
-          "resolved": "https://registry.npmjs.org/babel-plugin-minify-flip-comparisons/-/babel-plugin-minify-flip-comparisons-0.0.2.tgz",
-          "dev": true
-        },
-        "babel-plugin-minify-guarded-expressions": {
-          "version": "0.0.4",
-          "from": "babel-plugin-minify-guarded-expressions@>=0.0.4 <0.0.5",
-          "resolved": "https://registry.npmjs.org/babel-plugin-minify-guarded-expressions/-/babel-plugin-minify-guarded-expressions-0.0.4.tgz",
-          "dev": true
-        },
-        "babel-plugin-minify-infinity": {
-          "version": "0.0.3",
-          "from": "babel-plugin-minify-infinity@>=0.0.3 <0.0.4",
-          "resolved": "https://registry.npmjs.org/babel-plugin-minify-infinity/-/babel-plugin-minify-infinity-0.0.3.tgz",
-          "dev": true
-        },
-        "babel-plugin-minify-mangle-names": {
-          "version": "0.0.8",
-          "from": "babel-plugin-minify-mangle-names@>=0.0.8 <0.0.9",
-          "resolved": "https://registry.npmjs.org/babel-plugin-minify-mangle-names/-/babel-plugin-minify-mangle-names-0.0.8.tgz",
-          "dev": true
-        },
-        "babel-plugin-minify-numeric-literals": {
-          "version": "0.0.1",
-          "from": "babel-plugin-minify-numeric-literals@>=0.0.1 <0.0.2",
-          "resolved": "https://registry.npmjs.org/babel-plugin-minify-numeric-literals/-/babel-plugin-minify-numeric-literals-0.0.1.tgz",
-          "dev": true
-        },
-        "babel-plugin-minify-replace": {
-          "version": "0.0.1",
-          "from": "babel-plugin-minify-replace@>=0.0.1 <0.0.2",
-          "resolved": "https://registry.npmjs.org/babel-plugin-minify-replace/-/babel-plugin-minify-replace-0.0.1.tgz",
-          "dev": true
-        },
-        "babel-plugin-minify-simplify": {
-          "version": "0.0.8",
-          "from": "babel-plugin-minify-simplify@>=0.0.8 <0.0.9",
-          "resolved": "https://registry.npmjs.org/babel-plugin-minify-simplify/-/babel-plugin-minify-simplify-0.0.8.tgz",
-          "dev": true
-        },
-        "babel-plugin-minify-type-constructors": {
-          "version": "0.0.4",
-          "from": "babel-plugin-minify-type-constructors@>=0.0.4 <0.0.5",
-          "resolved": "https://registry.npmjs.org/babel-plugin-minify-type-constructors/-/babel-plugin-minify-type-constructors-0.0.4.tgz",
-          "dev": true
-        },
-        "babel-plugin-transform-inline-consecutive-adds": {
-          "version": "0.0.2",
-          "from": "babel-plugin-transform-inline-consecutive-adds@>=0.0.2 <0.0.3",
-          "resolved": "https://registry.npmjs.org/babel-plugin-transform-inline-consecutive-adds/-/babel-plugin-transform-inline-consecutive-adds-0.0.2.tgz",
-          "dev": true
-        },
-        "babel-plugin-transform-regexp-constructors": {
-          "version": "0.0.6",
-          "from": "babel-plugin-transform-regexp-constructors@>=0.0.6 <0.0.7",
-          "resolved": "https://registry.npmjs.org/babel-plugin-transform-regexp-constructors/-/babel-plugin-transform-regexp-constructors-0.0.6.tgz",
-          "dev": true
-        },
-        "babel-plugin-transform-remove-undefined": {
-          "version": "0.0.5",
-          "from": "babel-plugin-transform-remove-undefined@>=0.0.5 <0.0.6",
-          "resolved": "https://registry.npmjs.org/babel-plugin-transform-remove-undefined/-/babel-plugin-transform-remove-undefined-0.0.5.tgz",
-          "dev": true
-        },
-        "babel-preset-babili": {
-          "version": "0.0.12",
-          "from": "babel-preset-babili@>=0.0.12 <0.0.13",
-          "resolved": "https://registry.npmjs.org/babel-preset-babili/-/babel-preset-babili-0.0.12.tgz",
-          "dev": true
-        },
-        "jsesc": {
-          "version": "2.5.1",
-          "from": "jsesc@>=2.4.0 <3.0.0",
-          "resolved": "https://registry.npmjs.org/jsesc/-/jsesc-2.5.1.tgz",
+        "webpack-sources": {
+          "version": "0.2.3",
+          "from": "webpack-sources@>=0.2.3 <0.3.0",
+          "resolved": "https://registry.npmjs.org/webpack-sources/-/webpack-sources-0.2.3.tgz",
           "dev": true
         }
       }
@@ -7170,9 +7062,9 @@
       "dev": true
     },
     "style-loader": {
-      "version": "0.18.0",
-      "from": "style-loader@0.18.0",
-      "resolved": "https://registry.npmjs.org/style-loader/-/style-loader-0.18.0.tgz",
+      "version": "0.18.1",
+      "from": "style-loader@0.18.1",
+      "resolved": "https://registry.npmjs.org/style-loader/-/style-loader-0.18.1.tgz",
       "dev": true
     },
     "sum-up": {
