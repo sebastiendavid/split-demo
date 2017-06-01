@@ -6,6 +6,9 @@ const pkg = require('../package.json');
 
 module.exports = function devConfig() {
   return webpackMerge(commonConfig(), {
+    entry: {
+      serviceWorker: './src/utils/service-worker.js',
+    },
     module: {
       rules: [
         {
@@ -26,6 +29,7 @@ module.exports = function devConfig() {
       new webpack.EnvironmentPlugin({
         NODE_ENV: 'development',
         DEBUG: true,
+        GITHUB: false,
       }),
       new HtmlWebpackPlugin({
         inject: true,

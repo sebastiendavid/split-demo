@@ -5,5 +5,5 @@ import React from 'react';
 import './index.css';
 import App from './core/app';
 
-OfflinePluginRuntime.install();
+if (process.env.NODE_ENV === 'production') OfflinePluginRuntime.install();
 render(<App />, document.getElementById('root'));

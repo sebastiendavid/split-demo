@@ -7,6 +7,7 @@
     "analyze": "better-npm-run analyze",
     "build": "npm run clean && better-npm-run build:prod",
     "build:dev": "npm run clean && better-npm-run build:dev",
+    "build:github": "npm run clean && better-npm-run build:github",
     "clean": "trash build",
     "format": "npm run prettier && npm run lint:fix",
     "lint": "eslint config src test *.js",
@@ -36,6 +37,14 @@
       "env": {
         "BABEL_DISABLE_CACHE": "1",
         "NODE_ENV": "production"
+      }
+    },
+    "build:github": {
+      "command": "webpack --colors --hide-modules --progress",
+      "env": {
+        "BABEL_DISABLE_CACHE": "1",
+        "NODE_ENV": "production",
+        "GITHUB": "true"
       }
     },
     "start:dev": {
@@ -83,6 +92,7 @@
     "eslint-plugin-react": "~7.0.1",
     "extract-text-webpack-plugin": "~2.1.0",
     "file-loader": "~0.11.0",
+    "history": "~4.6.1",
     "html-webpack-plugin": "~2.28.0",
     "image-webpack-loader": "~3.3.1",
     "moment": "~2.18.1",

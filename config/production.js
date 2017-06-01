@@ -66,6 +66,7 @@ module.exports = function prodConfig() {
       new webpack.EnvironmentPlugin({
         NODE_ENV: 'production',
         DEBUG: false,
+        GITHUB: false,
       }),
       // new webpack.optimize.UglifyJsPlugin({
       //   compress: {

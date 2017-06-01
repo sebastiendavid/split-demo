@@ -10,7 +10,7 @@ module.exports = function baseConfig() {
   return {
     devtool: 'source-map',
     entry: {
-      app: ['./src/index.js'],
+      app: './src/index.js',
     },
     output: {
       path: path.resolve('build'),
