@@ -2,8 +2,7 @@
 
 [Live demo](https://sebastiendavid.github.io/split-demo/build/index.html)
 
-> Built with `node@6.10` & `npm@4.2`.  
-> Tested with `chrome@57`, `firefox@52` & `safari@10.1`
+> Built with `node@8` & `npm@5`.
 
 ## Install
 
