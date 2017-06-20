@@ -1,15 +1,19 @@
-export function makeCancelable(promise) {
-  let canceled = false;
+export function makeCancellable(promise) {
+  let cancelled = false;
   const wrappedPromise = new Promise((resolve, reject) => {
-    promise.then(val => (canceled ? reject({ isCanceled: true }) : resolve(val)));
-    promise.catch(error => (canceled ? reject({ isCanceled: true }) : reject(error)));
+    promise.then(
+      val => (cancelled ? reject({ iscancelled: true }) : resolve(val))
+    );
+    promise.catch(
+      error => (cancelled ? reject({ iscancelled: true }) : reject(error))
+    );
   });
   return {
     promise: wrappedPromise,
     cancel() {
-      canceled = true;
+      cancelled = true;
     },
   };
 }
 
-export default makeCancelable;
+export default makeCancellable;

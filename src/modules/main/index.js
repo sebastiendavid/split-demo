@@ -10,6 +10,7 @@ function Main({ children }) {
         <Link className="navigation__link" to="/">Home</Link>
         <Link className="navigation__link" to="/octocat">Octocat</Link>
         <Link className="navigation__link" to="/info">Info</Link>
+        <Link className="navigation__link" to="/users">Users</Link>
       </nav>
       {children}
     </main>

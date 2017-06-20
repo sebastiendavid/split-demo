@@ -1,6 +1,8 @@
 const BabiliPlugin = require('babili-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const OfflinePlugin = require('offline-plugin');
 const ManifestPlugin = require('webpack-manifest-plugin');
 const webpack = require('webpack');
 const webpackMerge = require('webpack-merge');
@@ -107,9 +109,35 @@ module.exports = function prodConfig() {
           removeEmptyElements: false,
         },
       }),
+      new webpack.optimize.CommonsChunkPlugin({
+        name: 'manifest',
+        minChunks: Infinity,
+      }),
       new ManifestPlugin({
         fileName: 'chunks-manifest.json',
       }),
+      new HtmlWebpackPlugin({
+        inject: false,
+        template: 'src/offline-page.html',
+        filename: 'offline-page.html',
+        title: pkg.name,
+        hash: false,
+        minify: false,
+      }),
+      new OfflinePlugin({
+        publicPath: '/',
+        caches: 'all',
+        externals: ['/'],
+        ServiceWorker: {
+          navigateFallbackURL: '/',
+        },
+        AppCache: false,
+      }),
+      new CopyWebpackPlugin([
+        { context: 'src', from: 'manifest.json' },
+        { context: 'src/assets', from: 'favicon.ico' },
+        { context: 'src/assets', from: 'icon.png' },
+      ]),
     ],
   });
 };

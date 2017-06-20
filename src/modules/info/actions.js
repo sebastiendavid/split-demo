@@ -5,7 +5,7 @@ export function infoReceived(payload) {
 }
 
 export function fetchInfo() {
-  return async (dispatch) => {
+  return async dispatch => {
     try {
       const response = await fetch('/package.json');
       const info = await response.text();

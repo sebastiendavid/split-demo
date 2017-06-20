@@ -1,5 +1,6 @@
 import { createStore, compose, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
+import createSagaMiddleware from 'redux-saga';
 import createReducer from './reducers';
 
 function devTools() {
@@ -10,9 +11,16 @@ function devTools() {
 
 export default function configureStore(initialState = {}) {
   const reducers = createReducer();
-  const middlewares = compose(applyMiddleware(thunk), devTools());
+  const saga = createSagaMiddleware();
+  const middlewares = compose(
+    applyMiddleware(thunk),
+    applyMiddleware(saga),
+    devTools()
+  );
   const store = createStore(reducers, initialState, middlewares);
   store.asyncReducers = {};
+  store.asyncSagas = [];
+  store.runSaga = saga.run.bind(saga);
   return store;
 }
 
@@ -28,4 +36,12 @@ export function injectAsyncReducer(store, name, asyncReducer) {
     },
   });
   store.replaceReducer(createReducer(store.asyncReducers));
+}
+
+export function injectAsyncSaga(store, name, asyncSaga) {
+  if (store.asyncSagas.includes(name)) return;
+  Object.assign(store, {
+    asyncSagas: [...store.asyncSagas, name],
+  });
+  store.runSaga(asyncSaga);
 }

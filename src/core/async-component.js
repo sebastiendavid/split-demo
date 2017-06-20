@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { makeCancelable } from '../utils/promise';
+import { makeCancellable } from '../utils/promise';
+import * as log from '../utils/log';
 
 export default function getAsyncComponent(fetchComponent) {
   const mapDispatchToProps = {
@@ -15,20 +16,25 @@ export default function getAsyncComponent(fetchComponent) {
     state = {};
 
     componentWillMount() {
-      const { promise, cancel } = makeCancelable(fetchComponent());
+      const { promise, cancel } = makeCancellable(fetchComponent());
       this.cancelFetchComponent = cancel;
       promise
         .then(({ component, reducerKey }) => {
           this.setState({ component, reducerKey });
         })
-        .catch((error) => {
-          if (error.isCanceled) console.warn('fetchComponent is canceled', global.document.location.href);
-          else console.error('fetchComponent', error);
+        .catch(error => {
+          if (error.iscancelled)
+            log.warn(
+              'fetchComponent is cancelled',
+              global.document.location.href
+            );
+          else log.error('fetchComponent', error);
         });
     }
 
     componentWillUnmount() {
-      if (typeof this.cancelFetchComponent === 'function') this.cancelFetchComponent();
+      if (typeof this.cancelFetchComponent === 'function')
+        this.cancelFetchComponent();
       this.props.reset(this.state.reducerKey);
     }
 

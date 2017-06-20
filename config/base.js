@@ -1,16 +1,13 @@
-const CopyWebpackPlugin = require('copy-webpack-plugin');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const OfflinePlugin = require('offline-plugin');
 const path = require('path');
 const webpack = require('webpack');
 const server = require('./server');
-const pkg = require('../package.json');
 
 module.exports = function baseConfig() {
   return {
     devtool: 'source-map',
     entry: {
       app: './src/index.js',
+      serviceWorker: './src/utils/service-worker.js',
     },
     output: {
       path: path.resolve('build'),
@@ -22,9 +19,11 @@ module.exports = function baseConfig() {
       rules: [
         {
           test: /\.js$/,
-          exclude: [path.resolve('node_modules')],
+          exclude: [/node_modules/],
           loader: 'babel-loader',
-          options: pkg.babel,
+          options: {
+            cacheDirectory: true,
+          },
         },
         {
           test: /\.(ttf|eot|woff(2)?)(\?[a-z0-9]+)?$/i,
@@ -33,47 +32,20 @@ module.exports = function baseConfig() {
       ],
     },
     plugins: [
+      // new webpack.optimize.ModuleConcatenationPlugin(),
       new webpack.optimize.CommonsChunkPlugin({
         name: 'vendor',
-        minChunks: ({ context }) =>
-          context && context.indexOf('node_modules') !== -1,
+        minChunks: ({ context }) => /node_modules/.test(context),
       }),
       new webpack.optimize.CommonsChunkPlugin({
         name: 'app',
         async: 'vendor-async',
-        minChunks: ({ context }) =>
-          context && context.indexOf('node_modules') !== -1,
+        minChunks: ({ context }) => /node_modules/.test(context),
       }),
       new webpack.optimize.CommonsChunkPlugin({
         name: 'app',
         async: 'common',
         minChunks: 2,
-      }),
-      new webpack.optimize.CommonsChunkPlugin({
-        name: 'manifest',
-        minChunks: Infinity,
-      }),
-      new CopyWebpackPlugin([
-        { context: 'src', from: 'manifest.json' },
-        { context: 'src/assets', from: 'favicon.ico' },
-        { context: 'src/assets', from: 'icon.png' },
-      ]),
-      new HtmlWebpackPlugin({
-        inject: false,
-        template: 'src/offline-page.html',
-        filename: 'offline-page.html',
-        title: pkg.name,
-        hash: false,
-        minify: false,
-      }),
-      new OfflinePlugin({
-        publicPath: '/',
-        caches: 'all',
-        externals: ['/'],
-        ServiceWorker: {
-          navigateFallbackURL: '/',
-        },
-        AppCache: false,
       }),
     ],
     stats: {
