@@ -1,5 +1,12 @@
 import { delay } from 'redux-saga';
-import { call, put, fork, take, cancel, cancelled } from 'redux-saga/effects';
+import {
+  call,
+  put,
+  take,
+  race,
+  cancelled,
+  takeLatest,
+} from 'redux-saga/effects';
 import * as log from '../../utils/log';
 import * as api from './api';
 import { fetchUsersSucceed, fetchUsersError } from './actions';
@@ -24,10 +31,13 @@ function* fetchUsers() {
   }
 }
 
-export default function* usersSaga() {
-  while (yield take(USERS_FETCH)) {
-    const fetchUsersTask = yield fork(fetchUsers);
-    yield take(USERS_FETCH_CANCEL);
-    yield cancel(fetchUsersTask);
-  }
+function* fetchUsersTask() {
+  yield race({
+    task: call(fetchUsers),
+    cancel: take(USERS_FETCH_CANCEL),
+  });
+}
+
+export default function* mainSaga() {
+  yield takeLatest(USERS_FETCH, fetchUsersTask);
 }
