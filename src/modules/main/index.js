@@ -1,16 +1,22 @@
 import React from 'react';
+import { withRouter } from 'react-router';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import './index.css';
 
-function Main({ children }) {
+function Main({ children, location, modules }) {
   return (
     <main className="App">
       <nav className="navigation">
-        <Link className="navigation__link" to="/">Home</Link>
-        <Link className="navigation__link" to="/octocat">Octocat</Link>
-        <Link className="navigation__link" to="/info">Info</Link>
-        <Link className="navigation__link" to="/users">Users</Link>
+        {modules.map(key =>
+          <Link
+            key={`link-${key}`}
+            className="navigation__link"
+            to={`/${key}${location.search}`}
+          >
+            {key}
+          </Link>
+        )}
       </nav>
       {children}
     </main>
@@ -19,10 +25,12 @@ function Main({ children }) {
 
 Main.propTypes = {
   children: PropTypes.node,
+  location: PropTypes.object.isRequired,
+  modules: PropTypes.arrayOf(PropTypes.string).isRequired,
 };
 
 Main.defaultProps = {
   children: <noscript />,
 };
 
-export default Main;
+export default withRouter(Main);

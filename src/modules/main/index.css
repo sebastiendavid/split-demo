@@ -12,6 +12,7 @@
 
 .navigation__link {
   padding-right: 1rem;
+  text-transform: capitalize;
 }
 
 .View {
