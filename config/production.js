@@ -103,7 +103,7 @@ module.exports = function prodConfig() {
         },
       }),
       new ManifestPlugin({
-        fileName: 'chunks-manifest.json',
+        fileName: 'asset-manifest.json',
       }),
       new HtmlWebpackPlugin({
         inject: false,
@@ -113,20 +113,21 @@ module.exports = function prodConfig() {
         hash: false,
         minify: false,
       }),
-      new OfflinePlugin({
-        publicPath: '/',
-        caches: 'all',
-        externals: ['/'],
-        ServiceWorker: {
-          navigateFallbackURL: '/',
-        },
-        AppCache: false,
-      }),
       new CopyWebpackPlugin([
         { context: 'src', from: 'manifest.json' },
         { context: 'src/assets', from: 'favicon.ico' },
         { context: 'src/assets', from: 'icon.png' },
       ]),
+      new OfflinePlugin({
+        publicPath: '/',
+        caches: 'all',
+        autoUpdate: true,
+        excludes: ['**/.*', '**/*.map', '**/asset-manifest.json'],
+        ServiceWorker: {
+          navigateFallbackURL: '/',
+        },
+        AppCache: false,
+      }),
     ],
   });
 };

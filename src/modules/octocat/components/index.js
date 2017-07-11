@@ -74,12 +74,14 @@ class Octocat extends PureComponent {
             value={this.state.message}
             onChange={this.onChangeMessage}
             placeholder="Message"
+            aria-label="message"
           />
           <input
             id="octocat-submit"
             className="Octocat__submit"
             type="submit"
             value="Send"
+            aria-label="submit"
           />
         </form>
       </section>

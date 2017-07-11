@@ -22,7 +22,7 @@
     "format": "npm run prettier && npm run lint:fix",
     "lint": "eslint --cache --cache-location \"node_modules/.cache/eslint\" config src test *.js",
     "lint:fix": "eslint --fix config src test *.js",
-    "prettier": "prettier --single-quote --trailing-comma es5 --write \"{config,src,test}/**/*.{js,css}\"",
+    "prettier": "prettier --single-quote --trailing-comma es5 --write \"{config,src,test}/**/*.{js,css,json}\"",
     "prod": "better-npm-run start:prod",
     "start": "better-npm-run start:dev",
     "test": "npm run lint",
