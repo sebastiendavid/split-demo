@@ -32,7 +32,7 @@ module.exports = function baseConfig() {
       ],
     },
     plugins: [
-      // new webpack.optimize.ModuleConcatenationPlugin(),
+      new webpack.optimize.ModuleConcatenationPlugin(),
       new webpack.optimize.CommonsChunkPlugin({
         name: 'vendor',
         minChunks: ({ context }) => /node_modules/.test(context),
@@ -46,6 +46,10 @@ module.exports = function baseConfig() {
         name: 'app',
         async: 'common',
         minChunks: 2,
+      }),
+      new webpack.optimize.CommonsChunkPlugin({
+        name: 'manifest',
+        minChunks: Infinity,
       }),
     ],
     stats: {

@@ -1,9 +1,9 @@
-const BabiliPlugin = require('babili-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const OfflinePlugin = require('offline-plugin');
 const ManifestPlugin = require('webpack-manifest-plugin');
+const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 const webpack = require('webpack');
 const webpackMerge = require('webpack-merge');
 const commonConfig = require('./base');
@@ -70,14 +70,7 @@ module.exports = function prodConfig() {
         DEBUG: false,
         GITHUB: false,
       }),
-      // new webpack.optimize.UglifyJsPlugin({
-      //   compress: {
-      //     warnings: false,
-      //   },
-      //   sourceMap: false,
-      //   exclude: ['src/**/*'],
-      // }),
-      new BabiliPlugin(),
+      new UglifyJSPlugin({ sourceMap: true }),
       new ExtractTextPlugin({
         filename: '[name].[contenthash].css',
         allChunks: true,
@@ -108,10 +101,6 @@ module.exports = function prodConfig() {
           removeOptionalTags: true,
           removeEmptyElements: false,
         },
-      }),
-      new webpack.optimize.CommonsChunkPlugin({
-        name: 'manifest',
-        minChunks: Infinity,
       }),
       new ManifestPlugin({
         fileName: 'chunks-manifest.json',
