@@ -38,13 +38,17 @@ module.exports = function baseConfig() {
         minChunks: ({ context }) => /node_modules/.test(context),
       }),
       new webpack.optimize.CommonsChunkPlugin({
+        name: 'common',
+        minChunks: 2,
+      }),
+      new webpack.optimize.CommonsChunkPlugin({
         name: 'app',
         async: 'vendor-async',
         minChunks: ({ context }) => /node_modules/.test(context),
       }),
       new webpack.optimize.CommonsChunkPlugin({
         name: 'app',
-        async: 'common',
+        async: 'common-async',
         minChunks: 2,
       }),
       new webpack.optimize.CommonsChunkPlugin({

@@ -4,6 +4,9 @@ import PropTypes from 'prop-types';
 import moment from 'moment';
 import './index.css';
 import { fetchInfo } from '../actions';
+import { debug } from '../../../utils/log';
+
+debug('load info component');
 
 const mapStateToProps = state => ({
   info: state.info,
