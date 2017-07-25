@@ -88,8 +88,8 @@
     "copy-webpack-plugin": "~4.0.1",
     "css-loader": "~0.28.2",
     "dirty-chai": "~2.0.0",
-    "eslint": "~3.19.0",
-    "eslint-config-airbnb": "~15.0.1",
+    "eslint": "~4.3.0",
+    "eslint-config-airbnb": "~15.1.0",
     "eslint-config-prettier": "~2.3.0",
     "eslint-plugin-import": "~2.7.0",
     "eslint-plugin-jsx-a11y": "~5.1.1",
@@ -110,21 +110,21 @@
     "react-router": "~4.1.2",
     "react-router-dom": "~4.1.2",
     "redux": "~3.7.2",
-    "redux-saga": "~0.15.3",
+    "redux-saga": "~0.15.6",
     "redux-thunk": "~2.2.0",
     "selenium-standalone": "~6.5.0",
     "style-loader": "~0.18.2",
     "trash-cli": "~1.4.0",
-    "uglify-es": "~3.0.25",
-    "uglifyjs-webpack-plugin": "~1.0.0-beta.1",
+    "uglify-es": "~3.0.26",
+    "uglifyjs-webpack-plugin": "~1.0.0-beta.2",
     "wdio-mocha-framework": "~0.5.10",
     "wdio-selenium-standalone-service": "0.0.9",
     "wdio-spec-reporter": "~0.1.0",
     "webdriverio": "~4.8.0",
-    "webpack": "~3.3.0",
+    "webpack": "~3.4.0",
     "webpack-bundle-analyzer": "~2.8.3",
-    "webpack-dev-server": "~2.5.0",
-    "webpack-manifest-plugin": "~1.1.0",
+    "webpack-dev-server": "~2.6.1",
+    "webpack-manifest-plugin": "~1.2.1",
     "webpack-merge": "~4.1.0"
   },
   "babel": {
@@ -156,21 +156,14 @@
     ],
     "env": {
       "production": {
-        "presets": [
-          "react-optimize"
-        ],
-        "plugins": [
-          "transform-remove-debugger"
-        ]
+        "presets": ["react-optimize"],
+        "plugins": ["transform-remove-debugger"]
       }
     }
   },
   "eslintConfig": {
     "parser": "babel-eslint",
-    "extends": [
-      "airbnb",
-      "prettier"
-    ],
+    "extends": ["airbnb", "prettier"],
     "env": {
       "browser": true,
       "mocha": true
