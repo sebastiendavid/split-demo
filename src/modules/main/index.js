@@ -8,7 +8,7 @@ function Main({ children, location, modules }) {
   return (
     <main className="App">
       <nav className="navigation">
-        {modules.map(key =>
+        {modules.map(key => (
           <Link
             key={`link-${key}`}
             className="navigation__link"
@@ -16,7 +16,7 @@ function Main({ children, location, modules }) {
           >
             {key}
           </Link>
-        )}
+        ))}
       </nav>
       {children}
     </main>

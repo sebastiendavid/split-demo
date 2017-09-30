@@ -33,12 +33,8 @@ class Info extends PureComponent {
   render() {
     return (
       <div className="Info">
-        <h3 className="Info__date">
-          {moment().format()}
-        </h3>
-        <pre className="Info__pre">
-          {this.props.info}
-        </pre>
+        <h3 className="Info__date">{moment().format()}</h3>
+        <pre className="Info__pre">{this.props.info}</pre>
       </div>
     );
   }

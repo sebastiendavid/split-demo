@@ -57,10 +57,11 @@ class Octocat extends PureComponent {
             src={octocatGif}
             alt="Octocat"
           />
-          {!!this.props.octocatMessage &&
+          {!!this.props.octocatMessage && (
             <h2 id="octocat-message" className="Octocat__message">
               {this.props.octocatMessage}
-            </h2>}
+            </h2>
+          )}
         </div>
         <form
           id="octocat-form"

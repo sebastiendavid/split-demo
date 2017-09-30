@@ -16,17 +16,17 @@ const asyncModuleKeys = Object.keys(asyncModules);
 function App() {
   return (
     <Provider store={store}>
-      <Router history={history}>
+      <Router>
         <Main modules={asyncModuleKeys}>
           <Switch>
-            {asyncModuleKeys.map(key =>
+            {asyncModuleKeys.map(key => (
               <Route
                 key={`route-${key}`}
                 exact
                 path={`/${key}`}
                 component={makeAsync(asyncModules[key])}
               />
-            )}
+            ))}
             <Route component={Page404} />
           </Switch>
         </Main>

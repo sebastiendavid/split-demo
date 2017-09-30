@@ -26,8 +26,7 @@
     "prod": "better-npm-run start:prod",
     "start": "better-npm-run start:dev",
     "test": "npm run lint",
-    "wdio": "wdio test/wdio.conf.js",
-    "webpack-defaults": "webpack-defaults"
+    "wdio": "wdio test/wdio.conf.js"
   },
   "betterScripts": {
     "analyze": {
@@ -72,59 +71,59 @@
     }
   },
   "devDependencies": {
-    "babel-core": "~6.25.0",
-    "babel-eslint": "~7.2.3",
-    "babel-loader": "~7.1.0",
+    "babel-core": "~6.26.0",
+    "babel-eslint": "~8.0.1",
+    "babel-loader": "~7.1.2",
     "babel-plugin-syntax-dynamic-import": "~6.18.0",
-    "babel-plugin-transform-remove-console": "~6.8.4",
-    "babel-plugin-transform-remove-debugger": "~6.8.4",
+    "babel-plugin-transform-remove-console": "~6.8.5",
+    "babel-plugin-transform-remove-debugger": "~6.8.5",
     "babel-plugin-transform-runtime": "~6.23.0",
     "babel-preset-env": "~1.6.0",
     "babel-preset-react": "~6.24.1",
     "babel-preset-react-optimize": "~1.0.1",
     "babel-preset-stage-2": "~6.24.1",
-    "better-npm-run": "~0.0.15",
-    "chai": "~4.1.0",
-    "copy-webpack-plugin": "~4.0.1",
-    "css-loader": "~0.28.2",
+    "better-npm-run": "~0.1.0",
+    "chai": "~4.1.2",
+    "copy-webpack-plugin": "~4.1.0",
+    "css-loader": "~0.28.7",
     "dirty-chai": "~2.0.0",
-    "eslint": "~4.3.0",
+    "eslint": "~4.8.0",
     "eslint-config-airbnb": "~15.1.0",
-    "eslint-config-prettier": "~2.3.0",
+    "eslint-config-prettier": "~2.6.0",
     "eslint-plugin-import": "~2.7.0",
     "eslint-plugin-jsx-a11y": "~5.1.1",
-    "eslint-plugin-react": "~7.1.0",
+    "eslint-plugin-react": "~7.4.0",
     "extract-text-webpack-plugin": "~3.0.0",
     "file-loader": "~0.11.2",
-    "history": "~4.6.3",
-    "html-webpack-plugin": "~2.29.0",
-    "image-webpack-loader": "~3.3.1",
+    "history": "~4.7.2",
+    "html-webpack-plugin": "~2.30.1",
+    "image-webpack-loader": "~3.4.2",
     "moment": "~2.18.1",
     "normalize.css": "~7.0.0",
-    "offline-plugin": "~4.8.1",
-    "prettier": "~1.5.3",
-    "prop-types": "~15.5.10",
-    "react": "~15.6.1",
-    "react-dom": "~15.6.1",
-    "react-redux": "~5.0.5",
-    "react-router": "~4.1.2",
-    "react-router-dom": "~4.1.2",
+    "offline-plugin": "~4.8.4",
+    "prettier": "~1.7.3",
+    "prop-types": "~15.6.0",
+    "react": "~16.0.0",
+    "react-dom": "~16.0.0",
+    "react-redux": "~5.0.6",
+    "react-router": "~4.2.0",
+    "react-router-dom": "~4.2.2",
     "redux": "~3.7.2",
     "redux-saga": "~0.15.6",
     "redux-thunk": "~2.2.0",
-    "selenium-standalone": "~6.5.0",
+    "selenium-standalone": "~6.9.0",
     "style-loader": "~0.18.2",
     "trash-cli": "~1.4.0",
-    "uglify-es": "~3.0.26",
+    "uglify-es": "~3.1.2",
     "uglifyjs-webpack-plugin": "~1.0.0-beta.2",
-    "wdio-mocha-framework": "~0.5.10",
+    "wdio-mocha-framework": "~0.5.11",
     "wdio-selenium-standalone-service": "0.0.9",
-    "wdio-spec-reporter": "~0.1.0",
+    "wdio-spec-reporter": "~0.1.2",
     "webdriverio": "~4.8.0",
-    "webpack": "~3.4.0",
-    "webpack-bundle-analyzer": "~2.8.3",
-    "webpack-dev-server": "~2.6.1",
-    "webpack-manifest-plugin": "~1.2.1",
+    "webpack": "~3.6.0",
+    "webpack-bundle-analyzer": "~2.9.0",
+    "webpack-dev-server": "~2.9.1",
+    "webpack-manifest-plugin": "~1.3.2",
     "webpack-merge": "~4.1.0"
   },
   "babel": {
@@ -156,14 +155,21 @@
     ],
     "env": {
       "production": {
-        "presets": ["react-optimize"],
-        "plugins": ["transform-remove-debugger"]
+        "presets": [
+          "react-optimize"
+        ],
+        "plugins": [
+          "transform-remove-debugger"
+        ]
       }
     }
   },
   "eslintConfig": {
     "parser": "babel-eslint",
-    "extends": ["airbnb", "prettier"],
+    "extends": [
+      "airbnb",
+      "prettier"
+    ],
     "env": {
       "browser": true,
       "mocha": true

@@ -81,7 +81,7 @@ module.exports = function baseConfig() {
       clientLogLevel: 'warning',
       historyApiFallback: true,
       stats: 'errors-only',
-      setup: server,
+      before: server,
     },
   };
 };
