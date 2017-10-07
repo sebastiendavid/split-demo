@@ -10,6 +10,7 @@ function Main({ children, location, modules }) {
       <nav className="navigation">
         {modules.map(key => (
           <Link
+            href="none"
             key={`link-${key}`}
             className="navigation__link"
             to={`/${key}${location.search}`}
@@ -25,7 +26,7 @@ function Main({ children, location, modules }) {
 
 Main.propTypes = {
   children: PropTypes.node,
-  location: PropTypes.object.isRequired,
+  location: PropTypes.shape({ search: PropTypes.string }).isRequired,
   modules: PropTypes.arrayOf(PropTypes.string).isRequired,
 };
 

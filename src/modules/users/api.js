@@ -7,3 +7,5 @@ export async function fetchUsers() {
     return { error };
   }
 }
+
+export default fetchUsers;

@@ -39,7 +39,9 @@ class Users extends Component {
 }
 
 Users.propTypes = {
-  users: PropTypes.array.isRequired,
+  users: PropTypes.arrayOf(
+    PropTypes.shape({ id: PropTypes.number, name: PropTypes.string })
+  ).isRequired,
   isLoading: PropTypes.bool.isRequired,
   fetchUsers: PropTypes.func.isRequired,
   cancelFetchUsers: PropTypes.func.isRequired,
