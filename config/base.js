@@ -55,6 +55,7 @@ module.exports = function baseConfig() {
         name: 'manifest',
         minChunks: Infinity,
       }),
+      new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
     ],
     stats: {
       assets: true,
