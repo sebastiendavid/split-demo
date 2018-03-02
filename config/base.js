@@ -31,30 +31,36 @@ module.exports = function baseConfig() {
         },
       ],
     },
+    optimization: {
+      runtimeChunk: true,
+      splitChunks: {
+        chunks: 'all',
+      },
+    },
     plugins: [
       new webpack.optimize.ModuleConcatenationPlugin(),
-      new webpack.optimize.CommonsChunkPlugin({
-        name: 'vendor',
-        minChunks: ({ context }) => /node_modules/.test(context),
-      }),
-      new webpack.optimize.CommonsChunkPlugin({
-        name: 'common',
-        minChunks: 2,
-      }),
-      new webpack.optimize.CommonsChunkPlugin({
-        name: 'app',
-        async: 'vendor-async',
-        minChunks: ({ context }) => /node_modules/.test(context),
-      }),
-      new webpack.optimize.CommonsChunkPlugin({
-        name: 'app',
-        async: 'common-async',
-        minChunks: 2,
-      }),
-      new webpack.optimize.CommonsChunkPlugin({
-        name: 'manifest',
-        minChunks: Infinity,
-      }),
+      // new webpack.optimize.CommonsChunkPlugin({
+      //   name: 'vendor',
+      //   minChunks: ({ context }) => /node_modules/.test(context),
+      // }),
+      // new webpack.optimize.CommonsChunkPlugin({
+      //   name: 'common',
+      //   minChunks: 2,
+      // }),
+      // new webpack.optimize.CommonsChunkPlugin({
+      //   name: 'app',
+      //   async: 'vendor-async',
+      //   minChunks: ({ context }) => /node_modules/.test(context),
+      // }),
+      // new webpack.optimize.CommonsChunkPlugin({
+      //   name: 'app',
+      //   async: 'common-async',
+      //   minChunks: 2,
+      // }),
+      // new webpack.optimize.CommonsChunkPlugin({
+      //   name: 'manifest',
+      //   minChunks: Infinity,
+      // }),
       new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
     ],
     stats: {

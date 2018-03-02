@@ -6,6 +6,7 @@ const pkg = require('../package.json');
 
 module.exports = function devConfig() {
   return webpackMerge(commonConfig(), {
+    mode: 'development',
     module: {
       rules: [
         {

@@ -1,4 +1,6 @@
+const autoprefixer = require('autoprefixer');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+const cssnano = require('cssnano');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const OfflinePlugin = require('offline-plugin');
@@ -8,9 +10,11 @@ const webpack = require('webpack');
 const webpackMerge = require('webpack-merge');
 const commonConfig = require('./base');
 const pkg = require('../package.json');
+const manifest = require('../src/manifest.json');
 
 module.exports = function prodConfig() {
   return webpackMerge(commonConfig(), {
+    mode: 'production',
     output: {
       filename: '[name].[chunkhash].js',
       chunkFilename: '[name].[chunkhash].js',
@@ -25,8 +29,35 @@ module.exports = function prodConfig() {
               {
                 loader: 'css-loader',
                 options: {
-                  minimize: true,
-                  sourceMap: false,
+                  minimize: false,
+                  sourceMap: true,
+                  importLoaders: 1,
+                },
+              },
+              {
+                loader: 'postcss-loader',
+                options: {
+                  sourceMap: true,
+                  ident: 'postcss',
+                  plugins: () => [
+                    autoprefixer({
+                      browsers: [
+                        'Chrome >= 60',
+                        'Firefox >= 55',
+                        'Safari >= 11',
+                      ],
+                    }),
+                    cssnano({
+                      preset: [
+                        'advanced',
+                        {
+                          discardComments: {
+                            removeAll: true,
+                          },
+                        },
+                      ],
+                    }),
+                  ],
                 },
               },
             ],
@@ -60,6 +91,11 @@ module.exports = function prodConfig() {
         },
       ],
     },
+    optimization: {
+      minimizer: [
+        new UglifyJSPlugin({ sourceMap: true, cache: true, parallel: true }),
+      ],
+    },
     plugins: [
       new webpack.LoaderOptionsPlugin({
         minimize: true,
@@ -70,7 +106,6 @@ module.exports = function prodConfig() {
         DEBUG: false,
         GITHUB: false,
       }),
-      new UglifyJSPlugin({ sourceMap: true }),
       new ExtractTextPlugin({
         filename: '[name].[contenthash].css',
         allChunks: true,
@@ -103,7 +138,7 @@ module.exports = function prodConfig() {
         },
       }),
       new ManifestPlugin({
-        fileName: 'asset-manifest.json',
+        seed: manifest,
       }),
       new HtmlWebpackPlugin({
         inject: false,
@@ -114,7 +149,6 @@ module.exports = function prodConfig() {
         minify: false,
       }),
       new CopyWebpackPlugin([
-        { context: 'src', from: 'manifest.json' },
         { context: 'src/assets', from: 'favicon.ico' },
         { context: 'src/assets', from: 'icon.png' },
       ]),
@@ -122,9 +156,10 @@ module.exports = function prodConfig() {
         publicPath: '/',
         caches: 'all',
         autoUpdate: true,
-        excludes: ['**/.*', '**/*.map', '**/asset-manifest.json'],
+        excludes: ['**/.*', '**/*.map', '**/manifest.json'],
         ServiceWorker: {
           navigateFallbackURL: '/',
+          minify: false, // FIXME workaround
         },
         AppCache: false,
       }),
